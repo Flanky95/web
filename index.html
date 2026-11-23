@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="FLANKY 95 👑 - TRYING NEW STUFF">
+  <title>FLANKY 95 👑 | TRYING NEW STUFF</title>
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    :root {
+      --bg: #101010;
+      --panel: #1b1b1b;
+      --muted: #aaa;
+      --line: #383838;
+      --white: #fff;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--white);
+      font-family: Arial, Helvetica, sans-serif;
+      min-height: 100vh;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      padding: 24px 8%;
+      border-bottom: 1px solid #ffffff12;
+    }
+
+    .logo {
+      font-size: 25px;
+      font-weight: 900;
+      letter-spacing: 1.5px;
+      white-space: nowrap;
+    }
+
+    nav { display: flex; flex-wrap: wrap; gap: 22px; }
+
+    nav a {
+      color: #bbb;
+      text-decoration: none;
+      font-size: 13px;
+      transition: color .2s;
+    }
+
+    nav a:hover { color: white; }
+
+    .hero {
+      min-height: 78vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 70px 20px;
+      background:
+        radial-gradient(ellipse at center, #454545 0%, #242424 42%, #101010 78%);
+    }
+
+    h1 {
+      font-size: clamp(58px, 11vw, 120px);
+      font-weight: 1000;
+      letter-spacing: -5px;
+      text-shadow: 0 8px 35px #000;
+      animation: appear 1s ease;
+    }
+
+    .subtitle {
+      color: #bbb;
+      font-size: 13px;
+      letter-spacing: 7px;
+      margin-top: 16px;
+      animation: appear 1.4s ease;
+    }
+
+    .items {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 24px;
+      margin-top: 55px;
+      font-size: 36px;
+    }
+
+    .items span { transition: transform .25s; }
+    .items span:hover { transform: translateY(-10px) rotate(8deg); }
+
+    .socials {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 13px;
+      margin-top: 48px;
+    }
+
+    .socials a {
+      color: white;
+      text-decoration: none;
+      border: 1px solid #666;
+      border-radius: 8px;
+      padding: 14px 20px;
+      font-size: 12px;
+      font-weight: bold;
+      transition: .25s;
+    }
+
+    .socials a:hover {
+      background: white;
+      color: #111;
+      transform: translateY(-4px);
+    }
+
+    .coaching {
+      padding: 85px 8%;
+      background: #141414;
+      text-align: center;
+    }
+
+    .section-kicker {
+      color: #aaa;
+      font-size: 11px;
+      letter-spacing: 4px;
+      margin-bottom: 12px;
+    }
+
+    .coaching h2 {
+      font-size: clamp(32px, 5vw, 48px);
+      margin-bottom: 12px;
+    }
+
+    .section-description {
+      color: var(--muted);
+      line-height: 1.6;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .plans {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+      max-width: 800px;
+      margin: 42px auto 0;
+      text-align: left;
+    }
+
+    .plan {
+      background: linear-gradient(145deg, #242424, #191919);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 30px;
+      transition: transform .25s, border-color .25s;
+    }
+
+    .plan:hover {
+      transform: translateY(-6px);
+      border-color: #888;
+    }
+
+    .plan-label {
+      color: #bbb;
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .price {
+      font-size: clamp(38px, 6vw, 52px);
+      font-weight: 900;
+      margin: 17px 0 5px;
+    }
+
+    .price span {
+      font-size: 15px;
+      color: #aaa;
+      font-weight: 400;
+    }
+
+    .plan p {
+      color: #aaa;
+      line-height: 1.6;
+      font-size: 14px;
+      margin: 12px 0 22px;
+    }
+
+    .plan a {
+      display: inline-block;
+      color: #111;
+      background: white;
+      border-radius: 8px;
+      padding: 12px 17px;
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 800;
+      transition: .2s;
+    }
+
+    .plan a:hover { background: #ddd; }
+
+    .coaching-note {
+      color: #888;
+      font-size: 12px;
+      line-height: 1.6;
+      max-width: 650px;
+      margin: 24px auto 0;
+    }
+
+    footer {
+      padding: 26px 15px;
+      text-align: center;
+      color: #777;
+      font-size: 12px;
+      border-top: 1px solid #ffffff12;
+    }
+
+
+    .christmas {
+      padding: 85px 8%;
+      text-align: center;
+      background:
+        radial-gradient(ellipse at top, #3b2020 0%, #171313 48%, #101010 85%);
+      border-top: 1px solid #ffffff18;
+    }
+
+    .christmas h2 {
+      font-size: clamp(32px, 5vw, 48px);
+      margin-bottom: 12px;
+    }
+
+    .christmas-dates {
+      color: #f0c98b;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 3px;
+      margin-top: 16px;
+    }
+
+    .christmas-intro {
+      color: #bbb;
+      line-height: 1.6;
+      max-width: 600px;
+      margin: 16px auto 0;
+    }
+
+    .christmas-plan {
+      border-color: #8a5b45;
+      background: linear-gradient(145deg, #33201e, #191616);
+    }
+
+    .christmas-plan .price {
+      color: #f0d3a4;
+    }
+
+    .christmas-plan a {
+      background: #f0d3a4;
+      color: #241713;
+    }
+
+    .christmas-plan a:hover {
+      background: #fff0d2;
+    }
+
+    @keyframes appear {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 650px) {
+      header { flex-direction: column; }
+      nav { justify-content: center; gap: 18px; }
+      h1 { letter-spacing: -3px; }
+      .plans { grid-template-columns: 1fr; }
+      .plan { padding: 25px; }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="logo">FLANKY 95 👑</div>
+    <nav>
+      <a href="#home">HOME</a>
+      <a href="#coaching">PVP COACHING</a>
+      <a href="#christmas">CHRISTMAS OFFER</a>
+      <a href="#socials">SOCIALS</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <h1>FLANKY 95 👑</h1>
+      <p class="subtitle">TRYING NEW STUFF</p>
+
+      <div class="items" aria-label="Minecraft-themed items">
+        <span title="Mace">🔨</span>
+        <span title="Spear">🔱</span>
+        <span title="Minecart">🚃</span>
+        <span title="End Crystal">💎</span>
+        <span title="Diamond Sword">⚔️</span>
+        <span title="Netherite Sword">🗡️</span>
+        <span title="Axe">🪓</span>
+        <span title="Cobweb">🕸️</span>
+      </div>
+
+      <div class="socials" id="socials">
+        <a href="https://www.instagram.com/flanky95_/" target="_blank" rel="noopener noreferrer">MAIN INSTAGRAM</a>
+        <a href="https://www.instagram.com/flanky_extra/" target="_blank" rel="noopener noreferrer">SECONDARY INSTAGRAM</a>
+        <a href="https://youtube.com/@flanky95" target="_blank" rel="noopener noreferrer">YOUTUBE</a>
+        <a href="https://discord.gg/EgZMG6pNnA" target="_blank" rel="noopener noreferrer">FLANKY'S FLEET</a>
+      </div>
+    </section>
+
+    <section class="coaching" id="coaching">
+      <p class="section-kicker">LEVEL UP YOUR GAME</p>
+      <h2>Minecraft PVP Coaching</h2>
+      <p class="section-description">
+        Want to improve your PVP skills? Choose a coaching plan and get in touch
+        with me on Instagram to discuss your sessions.
+      </p>
+
+      <div class="plans">
+        <article class="plan">
+          <div class="plan-label">Weekly Plan</div>
+          <div class="price">$10 <span>/ week</span></div>
+          <p>PVP coaching for players who want to practise and improve week by week.</p>
+          <a href="https://www.instagram.com/flanky95_/" target="_blank" rel="noopener noreferrer">ASK ABOUT WEEKLY COACHING</a>
+        </article>
+
+        <article class="plan">
+          <div class="plan-label">Monthly Plan</div>
+          <div class="price">$25 <span>/ month</span></div>
+          <p>Monthly PVP coaching for players who want to keep building their skills.</p>
+          <a href="https://www.instagram.com/flanky95_/" target="_blank" rel="noopener noreferrer">ASK ABOUT MONTHLY COACHING</a>
+        </article>
+      </div>
+
+      <p class="coaching-note">
+        Message me on Instagram to check availability and arrange coaching.
+        The buttons contact me; they do not process payments.
+      </p>
+    </section>
+
+    <section class="christmas" id="christmas">
+      <p class="section-kicker">LIMITED-TIME HOLIDAY DEAL</p>
+      <h2>🎄 Special Christmas Offer 🎄</h2>
+      <p class="christmas-dates">25 DECEMBER – 1 JANUARY</p>
+      <p class="christmas-intro">
+        Celebrate the holidays with special prices on Minecraft PVP coaching!
+      </p>
+
+      <div class="plans">
+        <article class="plan christmas-plan">
+          <div class="plan-label">Christmas Weekly Plan</div>
+          <div class="price">$7 <span>/ week</span></div>
+          <p>Special holiday price for a week of PVP coaching.</p>
+          <a href="https://www.instagram.com/flanky95_/" target="_blank" rel="noopener noreferrer">CLAIM WEEKLY OFFER</a>
+        </article>
+
+        <article class="plan christmas-plan">
+          <div class="plan-label">Christmas Monthly Plan</div>
+          <div class="price">$20 <span>/ month</span></div>
+          <p>Special holiday price for a month of PVP coaching.</p>
+          <a href="https://www.instagram.com/flanky95_/" target="_blank" rel="noopener noreferrer">CLAIM MONTHLY OFFER</a>
+        </article>
+      </div>
+
+      <p class="coaching-note">
+        Offer valid from 25 December through 1 January. Message me on Instagram
+        to check availability and arrange your coaching. Buttons contact me;
+        they do not process payments.
+      </p>
+    </section>
+  </main>
+
+  <footer>© 2026 FLANKY 95 👑</footer>
+</body>
+</html>
